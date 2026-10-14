@@ -1,0 +1,4 @@
+services:
+  searchstax_dictionary.exporter:
+    class: Drupal\searchstax_dictionary\DictionaryExporter
+    arguments: ['@entity_type.manager', '@database', '@current_user', '@datetime.time']

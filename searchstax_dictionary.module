@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * @file
+ * Cleanup of abandoned and completed export data.
+ */
+
+/** Implements hook_cron(). */
+function searchstax_dictionary_cron(): void {
+  \Drupal::service('searchstax_dictionary.exporter')->cleanup();
+}

@@ -1,0 +1,18 @@
+searchstax_dictionary.settings:
+  path: '/admin/config/search/searchstax-dictionary'
+  defaults:
+    _form: '\Drupal\searchstax_dictionary\Form\DictionaryForm'
+    _title: 'SearchStax dictionary'
+  requirements:
+    _permission: 'administer searchstax dictionary'
+  options:
+    _admin_route: true
+searchstax_dictionary.download:
+  path: '/admin/config/search/searchstax-dictionary/download/{token}'
+  defaults:
+    _controller: '\Drupal\searchstax_dictionary\Controller\DownloadController::download'
+  requirements:
+    _permission: 'administer searchstax dictionary'
+    token: '[a-f0-9]{64}'
+  options:
+    no_cache: true

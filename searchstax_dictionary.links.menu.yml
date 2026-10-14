@@ -1,0 +1,5 @@
+searchstax_dictionary.settings:
+  title: 'SearchStax dictionary'
+  description: 'Select sources and download an Auto-Suggest dictionary.'
+  parent: system.admin_config_search
+  route_name: searchstax_dictionary.settings

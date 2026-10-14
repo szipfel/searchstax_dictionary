@@ -1,0 +1,9 @@
+name: SearchStax Dictionary
+type: module
+description: Generates a text dictionary for SearchStax Dictionary-Driven Auto-Suggest.
+package: Search
+core_version_requirement: ^10.6 || ^11
+configure: searchstax_dictionary.settings
+dependencies:
+  - drupal:node
+  - drupal:taxonomy

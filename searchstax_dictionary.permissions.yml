@@ -1,0 +1,3 @@
+administer searchstax dictionary:
+  title: 'Configure and export SearchStax dictionaries'
+  restrict access: true

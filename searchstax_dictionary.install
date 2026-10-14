@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Database schema for short-lived dictionary exports.
+ */
+
+/** Implements hook_schema(). */
+function searchstax_dictionary_schema(): array {
+  $token = ['type' => 'varchar', 'length' => 64, 'not null' => TRUE];
+  return [
+    'searchstax_dictionary_job' => [
+      'description' => 'Private, expiring dictionary generation jobs.',
+      'fields' => [
+        'token' => $token,
+        'uid' => ['type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE],
+        'expires' => ['type' => 'int', 'not null' => TRUE],
+        'ready' => ['type' => 'int', 'size' => 'tiny', 'not null' => TRUE, 'default' => 0],
+      ],
+      'primary key' => ['token'],
+      'indexes' => ['expires' => ['expires']],
+    ],
+    'searchstax_dictionary_entry' => [
+      'description' => 'Deduplicated dictionary lines; never publicly served.',
+      'fields' => [
+        'token' => $token,
+        'hash' => $token,
+        'label' => ['type' => 'text', 'size' => 'big', 'not null' => TRUE],
+      ],
+      'primary key' => ['token', 'hash'],
+    ],
+  ];
+}
